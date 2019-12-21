@@ -19,27 +19,31 @@ const Table = styled.table`
   }
 `;
 
-const ExpensesTable = ({ expenses = [], removeExpense }) => (
-  <Table>
-    <thead>
-      <tr>
-        <th>Expense name</th>
-        <th>Expense amount</th>
-        <th />
-      </tr>
-    </thead>
-    <tbody>
-      {expenses.map(({ id, name, amount }) => (
-        <tr key={id}>
-          <td>{name}</td>
-          <td>{amount}</td>
-          <td>
-            <Button label="Delete" onClick={() => removeExpense(id)} />
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </Table>
+const ExpensesTable = ({ expenses, removeExpense }) => (
+  <div>
+    {expenses && (
+      <Table>
+        <thead>
+          <tr>
+            <th>Expense name</th>
+            <th>Expense amount</th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          {expenses.map(({ id, name, amount }) => (
+            <tr key={id}>
+              <td>{name}</td>
+              <td>{amount}</td>
+              <td>
+                <Button label="Delete" onClick={() => removeExpense(id)} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    )}
+  </div>
 );
 
 ExpensesTable.propTypes = {

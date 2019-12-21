@@ -22,7 +22,7 @@ class BudgetForm extends Component {
 
   handleChange = e => {
     this.setState({
-      budget: e.target.value,
+      budget: Number(e.target.value),
     });
   };
 
