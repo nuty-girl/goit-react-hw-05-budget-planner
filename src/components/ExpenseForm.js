@@ -30,8 +30,14 @@ class ExpenseForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.addExpense({ ...this.state });
-    this.setState({ name: '', amount: 0 });
+    if (
+      this.state.amount > 0 &&
+      this.state.name !== '' &&
+      this.state.name !== '0'
+    ) {
+      this.props.addExpense({ ...this.state });
+      this.setState({ name: '', amount: 0 });
+    }
   };
 
   render() {

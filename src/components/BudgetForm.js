@@ -28,7 +28,6 @@ class BudgetForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.saveBudget(this.state.budget);
     this.setState({ budget: 0 });
   };
